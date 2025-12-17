@@ -10,12 +10,12 @@ const Hero = () => {
       <div className="w-full px-4 sm:px-6 lg:px-16 pt-4">
         <div 
           ref={heroRef}
-          className={`relative overflow-hidden rounded-2xl lg:rounded-3xl transition-all duration-700 ${
+          className={`relative overflow-hidden rounded-t-2xl lg:rounded-t-3xl transition-all duration-700 ${
             isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <img
-            src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&h=600&fit=crop"
+            src="/images/perfectEventSpace.png"
             alt="Outdoor event space with white tent and chairs"
             className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
           />
@@ -24,7 +24,7 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="bg-efandex-dark text-white py-12 sm:py-16 lg:py-20 mt-0">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <h1 
             className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 sm:mb-6 transition-all duration-700 delay-200 ${
               isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -47,7 +47,7 @@ const Hero = () => {
             }`}
             style={{ transitionDelay: '400ms' }}
           >
-            <span className="underline underline-offset-4 decoration-2">Download App</span>
+            <span className="underline underline-offset-4 decoration-1">Download App</span>
           </button>
         </div>
       </div>

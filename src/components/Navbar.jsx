@@ -70,15 +70,15 @@ const Navbar = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center space-x-1 bg-black text-white px-4 py-2 rounded-xl">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'bg-black text-white'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      ? 'bg-white text-black underline underline-offset-4 decoration-1'
+                      : 'text-white hover:bg-white/10'
                   }`}
                 >
                   {item.label}
