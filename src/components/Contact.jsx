@@ -37,7 +37,7 @@ const Contact = () => {
     <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white">
       <div 
         ref={sectionRef}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <h2 
           className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-8 lg:mb-12 text-right transition-all duration-700 ${
