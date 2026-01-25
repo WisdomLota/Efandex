@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [sectionRef, isVisible] = useScrollAnimation(0.2);
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
     message: '',
   });
@@ -22,14 +24,28 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setSubmitStatus('success');
-    setFormData({ email: '', message: '' });
+    try {
+      await emailjs.send(
+        'service_huoj6ev',      // Replace with your Service ID
+        'template_xiscsff',     // Replace with your Template ID
+        {
+          name: formData.name,           
+          email: formData.email,         
+          message: formData.message,     
+          reply_to: 'efandexsupport@dailystridellc.com',      
+          from_name: formData.name,      
+        },
+        '6V4ygMJc2eSc9B7XG'       // Replace with your Public Key
+      );
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Failed to send:', error);
+      setSubmitStatus('error');
+    }
+
     setIsSubmitting(false);
-    
-    // Reset status after 3 seconds
     setTimeout(() => setSubmitStatus(null), 3000);
   };
 
@@ -53,6 +69,18 @@ const Contact = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
+          {/* Name Input */}
+          <div>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Name"
+              required
+              className="w-full bg-gray-100 border-0 rounded-xl px-5 py-4 text-gray-800 placeholder-gray-400 text-sm sm:text-base focus:ring-2 focus:ring-black/10 transition-all duration-300"
+            />
+          </div>
           {/* Email Input */}
           <div>
             <input
@@ -96,6 +124,11 @@ const Contact = () => {
           {submitStatus === 'success' && (
             <div className="text-center text-green-600 font-medium animate-fade-in">
               Message sent successfully! We'll get back to you soon.
+            </div>
+          )}
+          {submitStatus === 'error' && (
+            <div className="text-center text-red-600 font-medium animate-fade-in">
+              Failed to send message. Please try again.
             </div>
           )}
         </form>
