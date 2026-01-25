@@ -26,16 +26,17 @@ const Contact = () => {
     
     try {
       await emailjs.send(
-        'service_huoj6ev',      // Replace with your Service ID
-        'template_xiscsff',     // Replace with your Template ID
+        import.meta.env.EMAILJS_SERVICE_ID,
+        import.meta.env.EMAILJS_TEMPLATE_ID,
         {
           name: formData.name,           
           email: formData.email,         
           message: formData.message,     
-          reply_to: 'efandexsupport@dailystridellc.com',      
-          from_name: formData.name,      
+          reply_to: formData.email,      
+          from_name: formData.name,  
+          to_email: 'efandexsupport@dailystridellc.com', 
         },
-        '6V4ygMJc2eSc9B7XG'       // Replace with your Public Key
+        import.meta.env.EMAILJS_PUBLIC_KEY
       );
 
       setSubmitStatus('success');
