@@ -1,7 +1,7 @@
 import React from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
-const HowItWorks = () => {
+const HowItWorks = ( {onDownloadClick} ) => {
   const [sectionRef, isVisible] = useScrollAnimation(0.2);
 
   return (
@@ -42,7 +42,9 @@ const HowItWorks = () => {
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-5 lg:mb-6 max-w-sm">
                   Turn your outdoor space into an event venue and start earning today. Manage your listings and bookings with ease.
                 </p>
-                <button className="bg-efandex-dark text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-semibold text-sm hover:bg-gray-800 transition-all duration-300 btn-hover-effect shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button 
+                  onClick={onDownloadClick}
+                  className="bg-efandex-dark text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-semibold text-sm hover:bg-gray-800 transition-all duration-300 btn-hover-effect shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <span className="underline underline-offset-4 decoration-1">Download App</span>
                 </button>
               </div>

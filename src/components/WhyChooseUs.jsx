@@ -2,7 +2,7 @@ import React from 'react';
 import { Wallet, MapPin, Calendar, Shield } from 'lucide-react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
-const WhyChooseUs = () => {
+const WhyChooseUs = ( {onDownloadClick} ) => {
   const [sectionRef, isVisible] = useScrollAnimation(0.15);
 
   const features = [
@@ -83,6 +83,7 @@ const WhyChooseUs = () => {
 
             {/* Download Button */}
             <button 
+              onClick={onDownloadClick}
               className={`mt-8 bg-white text-black px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-gray-100 transition-all duration-300 btn-hover-effect shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}

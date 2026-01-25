@@ -1,7 +1,7 @@
 import React from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
-const Footer = () => {
+const Footer = ( {onDownloadClick} ) => {
   const [footerRef, isVisible] = useScrollAnimation(0.2);
 
   return (
@@ -24,7 +24,7 @@ const Footer = () => {
             <p className="text-gray-200 text-sm leading-relaxed mb-8 max-w-md">
               Listing your space is free, and you control your availability and pricing. Start earning extra income by sharing your space with people looking for a unique venue.
             </p>
-            <div className="flex justify-end max-w-md">
+            <div onClick={onDownloadClick} className="flex justify-end max-w-md">
               <button className="bg-white text-black px-10 py-4 rounded-xl font-semibold text-base hover:bg-gray-100 transition-all duration-300 btn-hover-effect shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 <span className="underline underline-offset-4 decoration-1">Download App</span>
               </button>

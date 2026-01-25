@@ -1,7 +1,7 @@
 import React from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
-const Hero = () => {
+const Hero = ( {onDownloadClick} ) => {
   const [heroRef, isHeroVisible] = useScrollAnimation(0.1);
 
   return (
@@ -42,6 +42,7 @@ const Hero = () => {
             Manage your listings and bookings with ease.
           </p>
           <button 
+            onClick={onDownloadClick}
             className={`bg-white text-black px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base hover:bg-gray-100 transition-all duration-300 btn-hover-effect shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ${
               isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
