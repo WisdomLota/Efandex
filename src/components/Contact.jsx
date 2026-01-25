@@ -34,8 +34,8 @@ const Contact = () => {
           message: formData.message,     
           reply_to: formData.email,      
           from_name: formData.name,  
-          to_email: 'wisdomlotachukwu@gmail.com'
-          // to_email: 'efandexsupport@dailystridellc.com', 
+          // to_email: 'wisdomlotachukwu@gmail.com'
+          to_email: 'efandexsupport@dailystridellc.com', 
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
